@@ -1,5 +1,5 @@
 {
-  "name": "cra",
+  "name": "timebreak",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -7,11 +7,23 @@
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.1"
   },
+  "main": "public/main.js",
+  "homepage": "./",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "electron-start": "electron .",
+    "preelectron-pack": "npm run build",
+    "electron-pack": "build -c.extraMetadata.main=build/main.js"
+  },
+  "build": {
+    "appId": "nonExistentID",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ]
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -27,5 +39,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "electron": "^5.0.4",
+    "electron-builder": "^20.44.2",
+    "typescript": "^3.5.2"
   }
 }
